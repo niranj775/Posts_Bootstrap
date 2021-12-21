@@ -212,7 +212,8 @@ class PostsApp extends Component {
                       Edit
                     </Button>
                     <Button
-                      className="btn-danger"
+                      //   className="btn-danger"
+                      variant="danger"
                       onClick={() => this.deletePosts(post.id)}
                     >
                       Delete
