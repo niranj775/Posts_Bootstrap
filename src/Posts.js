@@ -1,6 +1,6 @@
 import { Component } from "react";
 import axios from "axios";
-import { Table, Button } from "react-bootstrap";
+import { Form, Table, Button } from "react-bootstrap";
 
 const API_URL = "https://jsonplaceholder.typicode.com/posts";
 
@@ -128,7 +128,7 @@ class PostsApp extends Component {
     return (
       <>
         <h2>Posts Application</h2>
-        <form onSubmit={this.handleSubmit}>
+        <Form onSubmit={this.handleSubmit}>
           {this.state.id && (
             <>
               <div>
@@ -138,7 +138,21 @@ class PostsApp extends Component {
               <br />
             </>
           )}
-          <div>
+
+          <Form.Group className="mb-3" controlId="formBasicEmail">
+            <Form.Label>User id: </Form.Label>
+            <Form.Control
+              name="userId"
+              type="number"
+              placeholder="Enter the user id"
+              value={this.state.userId}
+              onChange={this.handleChange}
+              required
+            />
+          </Form.Group>
+          <span> {this.state.errors.userId}</span>
+
+          {/* <div>
             <label>User Id: </label>
             <input
               name="userId"
@@ -150,8 +164,21 @@ class PostsApp extends Component {
             />
             <span> {this.state.errors.userId}</span>
           </div>
-          <br />
-          <div>
+          <br /> */}
+
+          <Form.Group className="mb-3" controlId="formBasicEmail">
+            <Form.Label>Title</Form.Label>
+            <Form.Control
+              name="title"
+              type="text"
+              placeholder="Enter the title"
+              value={this.state.title}
+              onChange={this.handleChange}
+              required
+            />
+          </Form.Group>
+          <span> {this.state.errors.title}</span>
+          {/* <div>
             <label>Title: </label>
             <input
               name="title"
@@ -163,8 +190,22 @@ class PostsApp extends Component {
             />
             <span> {this.state.errors.title}</span>
           </div>
-          <br />
-          <div>
+          <br /> */}
+
+          <Form.Group className="mb-3" controlId="formBasicEmail">
+            <Form.Label>Body</Form.Label>
+            <Form.Control
+              name="body"
+              type="text"
+              placeholder="Enter the body"
+              value={this.state.body}
+              onChange={this.handleChange}
+              required
+            />
+          </Form.Group>
+          <span> {this.state.errors.body}</span>
+
+          {/* <div>
             <label>Body: </label>
             <input
               name="body"
@@ -176,14 +217,14 @@ class PostsApp extends Component {
             />
             <span> {this.state.errors.body}</span>
           </div>
-          <br />
+          <br /> */}
           <Button
             //   className="btn-primary">
             type="submit"
           >
             {this.state.id ? "Update" : "Create"}
           </Button>
-        </form>
+        </Form>
         <br />
         {/* <table className="table"> */}
         <Table bordered hover striped>
