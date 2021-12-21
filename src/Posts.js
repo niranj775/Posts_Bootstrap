@@ -1,5 +1,6 @@
 import { Component } from "react";
 import axios from "axios";
+import { Table, Button } from "react-bootstrap";
 
 const API_URL = "https://jsonplaceholder.typicode.com/posts";
 
@@ -176,12 +177,16 @@ class PostsApp extends Component {
             <span> {this.state.errors.body}</span>
           </div>
           <br />
-          <button className="btn-primary" type="submit">
+          <Button
+            //   className="btn-primary">
+            type="submit"
+          >
             {this.state.id ? "Update" : "Create"}
-          </button>
+          </Button>
         </form>
         <br />
-        <table className="table">
+        {/* <table className="table"> */}
+        <Table bordered hover striped>
           <thead>
             <tr>
               <th>ID</th>
@@ -200,24 +205,24 @@ class PostsApp extends Component {
                   <td>{post.title}</td>
                   <td>{post.body}</td>
                   <td>
-                    <button
-                      className="btn-primary"
+                    <Button
+                      //className="btn-primary"
                       onClick={() => this.editPosts(post)}
                     >
                       Edit
-                    </button>
-                    <button
+                    </Button>
+                    <Button
                       className="btn-danger"
                       onClick={() => this.deletePosts(post.id)}
                     >
                       Delete
-                    </button>
+                    </Button>
                   </td>
                 </tr>
               );
             })}
           </tbody>
-        </table>
+        </Table>
       </>
     );
   }
